@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <body>
 
@@ -19,6 +20,9 @@
 	</div>
 </nav>
 
+<div class="container">
+
+<main>
 <br>
 <form name="szukaj" action="" method="get">
 	<label>Wprowadź tytuł lub reżysera filmu</label>
@@ -62,23 +66,24 @@
 		echo "<div>";
 		echo "<h1><a href=index.php?film={$w['tytul_filmu']}&id={$w['ID']}>
 					{$w['tytul_filmu']}</a></h1>";
+		echo "<p><b>srednia_ocena:</b> {$w['srednia_ocena']}/10		<b>liczba_komentarzy:</b> {$w['liczba_komentarzy']}</p>";
 		echo "</div>";
 	}
 
 	function wyswietlCalyFilm($w){
 		echo "<div>";
 		echo "<h1>{$w['tytul_filmu']}</h1>";
-		echo "<img src={$w['okladka_filmu']} alt='{$w['okladka_filmu']}'>";
-		echo "<p>autor_scenariusza: {$w['autor_scenariusza']}</p>";
-		echo "<p>rezyser: {$w['rezyser']}</p>";
-		echo "<p>krotki_opis: {$w['krotki_opis']}</p>";
-		echo "<p>data_premiery: {$w['data_premiery']}</p>";
-		echo "<p>kraj_pochodzenia: {$w['kraj_pochodzenia']}</p>";
-		echo "<p>wersje_jezykowe: {$w['wersje_jezykowe']}</p>";
-		echo "<p>liczba_widzow: {$w['liczba_widzow']}</p>";
-		echo "<p>aktorzy: {$w['aktorzy']}</p>";
-		echo "<p>srednia_ocena: {$w['srednia_ocena']}/10</p>";
-		echo "<p>liczba_komentarzy: {$w['liczba_komentarzy']}</p>";
+		echo "<img src={$w['okladka_filmu']} class='img-fluid' alt='{$w['okladka_filmu']}'>";
+		echo "<p><b>autor_scenariusza:</b> {$w['autor_scenariusza']}</p>";
+		echo "<p><b>rezyser:</b> {$w['rezyser']}</p>";
+		echo "<p><b>krotki_opis:</b> {$w['krotki_opis']}</p>";
+		echo "<p><b>data_premiery:</b> {$w['data_premiery']}</p>";
+		echo "<p><b>kraj_pochodzenia:</b> {$w['kraj_pochodzenia']}</p>";
+		echo "<p><b>wersje_jezykowe:</b> {$w['wersje_jezykowe']}</p>";
+		echo "<p><b>liczba_widzow:</b> {$w['liczba_widzow']}</p>";
+		echo "<p><b>aktorzy:</b> {$w['aktorzy']}</p>";
+		echo "<p><b>srednia_ocena:</b> {$w['srednia_ocena']}/10</p>";
+		echo "<p><b>liczba_komentarzy:</b> {$w['liczba_komentarzy']}</p>";
 		echo "</div>";
 	}
 
@@ -198,6 +203,9 @@
 	}
 ?>
 
+</main>
+
+</div>
 
 	<footer class="footer bg-dark">
 		<div class="container">

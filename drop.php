@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <body>
 
@@ -23,9 +23,13 @@
 	<?php
 		require_once("database.php");
 		$sql1 = "DROP TABLE filmy1";
-		mysqli_query($conn, $sql1);
+		if(mysqli_query($conn, $sql1))
+			echo "Tabela filmy1 usunieta<br>";
 		$sql2 = "DROP TABLE KOMENTARZE";
-		mysqli_query($conn, $sql2);
+		if(mysqli_query($conn, $sql2))
+			echo "Tabela KOMETARZE usunieta<br>";
+		else
+			echo "Brak tabel do usunięcia"
 	?>
 
 	<footer class="footer bg-dark">

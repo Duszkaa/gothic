@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="css.css">
+<link rel="stylesheet" href="style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <body>
 
@@ -92,10 +92,10 @@
         ]
     ];
 
-    $filmySelect = "SELECT ID FROM filmy1";
-    $filmyWynik = mysqli_query($conn, $filmySelect);
+    $filmySelect = "SELECT * FROM filmy1";
+    // $filmyWynik = mysqli_query($conn, $filmySelect);
     
-    if(empty($filmyWynik)) {
+    if($filmySelect !== false) {
         $filmyStworz = 
             "CREATE TABLE filmy1 (
             ID int(11) AUTO_INCREMENT PRIMARY KEY,
@@ -127,9 +127,9 @@
     }
 
     $komentarzeSelect = "SELECT * FROM KOMENTARZE";
-    $komentarzeWynik = mysqli_query($conn, $komentarzeSelect);
+    // $komentarzeWynik = mysqli_query($conn, $komentarzeSelect);
 
-    if(empty($komentarzeWynik)) {
+    if($komentarzeSelect !== false) {
         $komentarzeStworz = 
             "CREATE TABLE KOMENTARZE (
             ID_komentarz int(11) AUTO_INCREMENT PRIMARY KEY,
@@ -146,9 +146,9 @@
                     VALUES (" . $komentarz[0] . ", '" . $komentarz[1] . "', " . $komentarz[2] . ", '" . $komentarz[3] . "', '" . $komentarz[4] . "')";
         
             if (mysqli_query($conn, $sql)) {
-                echo "Komentarz użytkownika " . $komentarz[1] . " został dodany pomyślnie.<br>";
+                echo "Komentarz " . $komentarz[1] . " dodany<br>";
             } else {
-                echo "Błąd podczas dodawania komentarza: " . mysqli_error($conn) . "<br>";
+                echo "Błąd komentarza: " . mysqli_error($conn) . "<br>";
             }
         }
     }
